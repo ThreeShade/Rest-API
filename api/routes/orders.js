@@ -11,13 +11,19 @@ router.get('/:orderId', (req, res, next) => {
     const id = req.params.orderId
     res.status(200).json({
         message: "orders fetched",
-        id: id
+        id: id,
+        orderDetails: order
     })
 })
 
 router.post('/', (req, res, next) => {
+    const order = {
+        name: req.body.name,
+        price: req.body.price
+    }
     res.status(200).json({
-        message: "orders added"
+        message: "orders added",
+        details: order
     })
 })
 
